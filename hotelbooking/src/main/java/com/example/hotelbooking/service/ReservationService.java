@@ -30,10 +30,7 @@ public class ReservationService {
         this.customerRepository = customerRepository;
     }
 
-    /**
-     * Create reservation while preventing double booking.
-     * Transactional with SERIALIZABLE or at least REPEATABLE_READ (depending on DB) to avoid race conditions.
-     */
+ 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Reservation createReservation(ReservationRequest req) {
         // basic date validation
@@ -62,5 +59,5 @@ public class ReservationService {
         return saved;
     }
 
-    // Additional CRUD methods: getReservation, cancelReservation etc.
+   
 }
